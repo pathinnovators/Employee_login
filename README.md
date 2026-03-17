@@ -1,2 +1,204 @@
 # Employee_login
 Employee Login for access payslips 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Employee Login | Bright Path Innovators</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, sans-serif;
+background:linear-gradient(to right,#eef2f3,#dfe9f3);
+margin:0;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+
+.box{
+background:white;
+padding:30px 25px;
+border-radius:12px;
+width:90%;
+max-width:360px;
+text-align:center;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.logo{
+width:90px;
+height:90px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:10px;
+border:4px solid #0047AB;
+}
+
+.company{
+font-size:18px;
+font-weight:bold;
+color:#0047AB;
+margin-bottom:15px;
+}
+
+h2{
+margin-bottom:15px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:15px;
+}
+
+/* PASSWORD FIELD WITH ICON */
+
+.password-box{
+position:relative;
+}
+
+.password-box input{
+padding-right:40px;
+}
+
+.toggle{
+position:absolute;
+right:10px;
+top:50%;
+transform:translateY(-50%);
+cursor:pointer;
+font-size:18px;
+color:#555;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#0047AB;
+color:white;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#002f7a;
+}
+
+#msg{
+color:red;
+margin-top:10px;
+font-size:14px;
+}
+
+@media(max-width:480px){
+
+.logo{
+width:75px;
+height:75px;
+}
+
+.company{
+font-size:16px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<img src="logo.png" class="logo">
+
+<div class="company">
+Bright Path Innovators Pvt Ltd
+</div>
+
+<h2>Employee Login</h2>
+
+<input type="text" id="empID" placeholder="Employee ID (Ex: BPI-019)">
+
+<div class="password-box">
+<input type="password" id="password" placeholder="Password (DDMMYYYY)">
+<span class="toggle" onclick="togglePassword()">👁</span>
+</div>
+
+<button onclick="login()">Login</button>
+
+<p id="msg"></p>
+
+</div>
+
+<script>
+
+const employees=[
+
+{ id:"BPI-006", password:"13121980" },
+{ id:"BPI-011", password:"10061997" },
+{ id:"BPI-019", password:"17082001" },
+{ id:"BPI-021", password:"28111995" },
+{ id:"BPI-020", password:"06101998" },
+{ id:"BPI-024", password:"05062001" },
+{ id:"BPI-023", password:"02101991" }
+
+]
+
+function togglePassword(){
+
+let passField=document.getElementById("password")
+
+if(passField.type==="password"){
+passField.type="text"
+}else{
+passField.type="password"
+}
+
+}
+
+function login(){
+
+let id=document.getElementById("empID").value.trim()
+let pass=document.getElementById("password").value
+let msg=document.getElementById("msg")
+
+let user=employees.find(e=>e.id===id && e.password===pass)
+
+if(user){
+
+localStorage.setItem("loggedIn", id)
+
+window.location.href="https://pathinnovators.github.io/payslips/"
+
+}else{
+
+msg.innerText="Invalid Employee ID or Password"
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
