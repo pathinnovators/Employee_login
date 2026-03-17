@@ -42,7 +42,7 @@ height:90px;
 border-radius:50%;
 object-fit:cover;
 margin-bottom:10px;
-border:4px solid #0047AB;
+border:1px solid #0047AB;
 }
 
 .company{
