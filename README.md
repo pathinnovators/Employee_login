@@ -153,6 +153,8 @@ Bright Path Innovators Pvt Ltd
 
 const employees=[
 
+{ id:"BPI-002", password:"10082004" },
+{ id:"BPI-006", password:"02111993" },
 { id:"BPI-006", password:"13121980" },
 { id:"BPI-011", password:"10061997" },
 { id:"BPI-019", password:"17082001" },
